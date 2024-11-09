@@ -1,0 +1,112 @@
+<!-- app_14_3/templates/app_14_3/resume.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+        .intro {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+        }
+        .skills {
+            margin: 20px 0;
+        }
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills li {
+            background: #e9ecef;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .skills li:hover {
+            background: #007BFF;
+            color: white;
+        }
+        .contact {
+            margin-top: 40px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        .contact p {
+            margin: 5px 0;
+        }
+        .contact a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kanishka PG</h1>
+        <div class="intro">
+            <p>I am a B.Tech student in the Department of AIDS and a participant in a global-level hackathon.</p>
+        </div>
+        <h2>Skills</h2>
+        <div class="skills">
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill.name }} ({{ skill.category }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="contact">
+            <h2>Contact Details</h2>
+            <p>Email: {{ contact.email }}</p>
+            <p>Phone: {{ contact.phone }}</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/{{ contact.linkedin }}">{{ contact.linkedin }}</a></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; {{ current_year }} Kanishka PG. All rights reserved.
+    </footer>
+
+</body>
+</html>
